@@ -1,0 +1,51 @@
+{
+    "validUser":{
+        "email": "rojal2002@gmail.com",
+        "password": "Rojalposters@10"
+    },
+    "invalidUserPass":{
+        "email": "admin@test.com",
+        "password": "admin"
+    },
+    "invalidPass":{
+        "email": "rojal2002@gmail.com",
+        "password": "test123"
+    },
+    "invalidUser":{
+        "email": "admin@test.com",
+        "password": "Rojalposters@10"
+    },
+    "emptyUserinvalidPass":{
+        "email": "",
+        "password": "test123"
+    },
+    "emptyPassinvalidUser":{
+        "email": "root@gmail.com",
+        "password": ""
+    },
+    "emptyUservalidPass":{
+        "email": "",
+        "password": "Rojalposters@10"
+    },
+    "emptyPassvalidUser":{
+        "email": "rojal2002@gmail.com",
+        "password": ""
+    },
+    "emptyUserPass":{
+        "email": "",
+        "password": ""
+    },
+    "search":{
+        "searchTerm": "stranger things"
+    },
+    "contactDetail":{
+        "firstName": "Rojal",
+        "lastName": "Manandhar",
+        "address": " 47 W 13th St, New York, NY 10011, USA",
+        "city": "New York",
+        "zip": "44600",
+        "phone": "9812345678"
+    }
+}
+
+

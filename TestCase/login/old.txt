@@ -1,0 +1,89 @@
+const { test, expect } = require("@playwright/test");
+const testData = require("../fixtures/loginFixture.json");
+const { LoginPage } = require("../pageObjects/login.po.js");
+
+// test.beforeEach(async ({ page }) => {
+//   await page.goto("https://juice-shop.herokuapp.com/#/");
+
+//   // Expect a title "to contain" a substring.
+//   await expect(page).toHaveTitle(/OWASP Juice Shop/);
+
+//   const login = new LoginPage(page);
+//   await login.login(testData.validUser.userName, testData.validUser.password);
+//   await login.submit();
+// });
+
+test.describe("Juice Shop Login", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://juice-shop.herokuapp.com/#/");
+    await page.waitForSelector("text=Dismiss");
+    await page.click("text=Dismiss"); // Dismisses the welcome banner
+  });
+
+  test("User should be able to login", async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    await loginPage.navigateToLogin();
+    await page.waitForSelector('input[name="email"]'); // Ensure email input is available
+    await loginPage.login(
+      testData.validUser.userName,
+      testData.validUser.password
+    );
+
+    // Assert that user is logged in by checking the presence of logout button
+    await expect(page.locator('button[aria-label="Logout"]')).toBeVisible();
+  });
+});
+
+// //Add to cart
+// test('Add Product to Cart', async ({ page }) => {
+//   // Search for a product
+//   await page.fill('input[aria-label="Search"]', 'Apple Juice');
+//   await page.press('input[aria-label="Search"]', 'Enter');
+
+//   // Add the product to the cart
+//   await page.click('text=Add to Basket');
+
+//   // Verify the product is in the cart
+//   await page.click('text=Your Basket');
+//   await expect(page.locator('text=Apple Juice')).toBeVisible();
+// });
+
+// test('View and Edit Profile', async ({ page }) => {
+//   await page.click('text=Account');
+//   await page.click('text=Profile');
+
+//   // View profile
+//   await expect(page.locator('input[name="email"]').value()).toBe('rojal@gmail.com');
+
+//   // Edit profile
+//   await page.fill('input[name="username"]', 'UpdatedUsername');
+//   await page.click('button#saveButton');
+
+//   // Verify profile update
+//   await expect(page.locator('text=Profile updated successfully')).toBeVisible();
+// });
+
+// test('Logout Test', async ({ page }) => {
+//   await page.click('text=Account');
+//   await page.click('text=Logout');
+
+//   // Verify logout
+//   await expect(page.locator('text=Login')).toBeVisible();
+// });
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////to make a update dropdown/////////////////////////////////////////// 
+  //This is for the dropdown to select the quantity
+    // // Locate the dropdown element using the provided XPath
+    // const dropdown = page.locator(
+    //   '//*[@id="maincontent"]/div[4]/div[1]/div[1]/div[1]/div/div[2]/div/div[1]/div[1]/div'
+    // );
+    // // const dropdown = page.locator('//*[@id="maincontent"]/div[4]/div[1]/div[1]/div[1]/div/div[2]/div/div[1]/div[1]');
+    // await dropdown.waitFor({ state: "visible", timeout: 20000 });
+    // await dropdown.click();
+
+    // //  Locate and click a specific option within the custom dropdown
+    // // const option = page.locator('//*[@id="quantity-8b2524c00d0a34c0075d789115"]/option[2]');
+    // // await option.click();
