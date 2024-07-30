@@ -31,10 +31,6 @@
         "email": "rojal2002@gmail.com",
         "password": ""
     },
-    "emptyUserPass":{
-        "email": "",
-        "password": ""
-    },
     "search":{
         "searchTerm": "stranger things"
     },

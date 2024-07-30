@@ -9,49 +9,92 @@ test.describe("Goto Page and Login", () => {
     const login = new LoginPage(page);
     await page.goto("https://www.allposters.com/");
     await login.navigateToLogin();
-    // Perform login
     await login.login(testData.validUser.email, testData.validUser.password);
     await login.submit();
-    // await expect(page).toHaveTitle(/Allposters/);
   });
   
   test("Login using valid credentials", async ({ page }) => {
     const login = new LoginPage(page);
     await login.navigateToLogin();
-    // Perform login
-    await login.login(testData.invalidUser.email, testData.invalidUser.password);
+    await login.login(testData.validUser.email, testData.validUser.password);
     await login.submit();
-    // await page.pause();
   });
 
   test("Search for an item", async ({ page }) => {
     const login = new LoginPage(page);
-    await login.search(testData.search.searchTerm); // Search for "posters"
-    // await expect(page.locator('text=Search Results')).toBeVisible(); // Verify that search results are displayed
+    await login.search(testData.search.searchTerm); 
+    // await expect(page.locator('text=Search Results')).toBeVisible(); 
     await page.pause();
   });
 
   test("Search and select poster", async ({ page }) => {
     const login = new LoginPage(page);
-    await login.search(testData.search.searchTerm); // Search for "posters"
+    await login.search(testData.search.searchTerm); 
     await login.selectPoster(); 
-    // await expect(page.locator('text=Search Results')).toBeVisible(); // Verify that search results are displayed
     await page.pause();
   });
 
-  test.only("Login, search, select, addCart, checkout, ", async ({ page }) => {
+  test("Add to Cart", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.search(testData.search.searchTerm); 
+    await login.selectPoster(); 
+    await login.addCart();
+    await page.pause();
+  });
+
+  test("Checkout", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.search(testData.search.searchTerm); 
+    await login.selectPoster(); 
+    await login.addCart();
+    await login.checkoutfn();
+  });
+
+  test("Customer Fill", async ({ page }) => {
+    const login = new LoginPage(page);
+    const contact = new ContactPage(page)
+    await login.search(testData.search.searchTerm); 
+    await login.selectPoster(); 
+    await login.addCart();
+    await login.checkoutfn();
+    await contact.customerFill();
+  });
+
+  test("Payment", async ({ page }) => {
+    const login = new LoginPage(page);
+    const contact = new ContactPage(page)
+    await login.search(testData.search.searchTerm); 
+    await login.selectPoster(); 
+    await login.addCart();
+    await login.checkoutfn();
+    await contact.customerFill();
+    await login.payButton();
+  });
+
+  test("Logout", async ({ page }) => {
+    const login = new LoginPage(page);
+    const contact = new ContactPage(page)
+    await login.search(testData.search.searchTerm); 
+    await login.selectPoster(); 
+    await login.addCart();
+    await login.checkoutfn();
+    await contact.customerFill();
+    await login.payButton();
+    await login.logoutfn();
+  });
+
+  test.only("Login, search, select, addCart, checkout, customerfill, payment", async ({ page }) => {
     const login = new LoginPage(page);
     const contact = new ContactPage(page);
 
-    await login.search(testData.search.searchTerm); // Use the search term from loginFixture.json
-
-    // await expect(page.locator('text=Search Results')).toBeVisible(); // Verify that search results are displayed
+    await login.search(testData.search.searchTerm); 
+    // await expect(page.locator('text=Search Results')).toBeVisible(); 
     await login.selectPoster(); // Select the poster item
-    // await expect(page.locator('text=Poster Details')).toBeVisible(); // Verify that the poster details page is displayed (adjust as needed)
+    // await expect(page.locator('text=Poster Details')).toBeVisible(); 
 
     await login.addCart();
 
-    // await login.selectQuantity(2); // Select quantity 2
+    await login.selectQuantity(2); // Select quantity 2
 
     await login.checkoutfn();
 
@@ -60,6 +103,8 @@ test.describe("Goto Page and Login", () => {
     await login.payButton();
 
     await page.goto("https://www.allposters.com");
+
+    await login.logoutfn();
 
     await page.pause();
   });
@@ -71,17 +116,3 @@ test.describe("Goto Page and Login", () => {
 
 
 
-// test("Login using wrong email and password", async ({ page }) => {
-//   const login = new LoginPage(page);
-//   // Navigate to the login form
-//   await login.navigateToLogin();
-
-//   // Perform login
-//   await login.login(
-//     testData.invalidUser.email,
-//     testData.invalidUser.password
-//   );
-//   await login.submit();
-//   const errorMessage = await login.getErrorMessage();
-//   await expect(errorMessage).toContain("Invalid credentials"); // Adjust based on actual error message
-// });
