@@ -17,7 +17,7 @@ test.describe("Go to Page and Login", () => {
     await login.submit();
   });
 
-  test("Login using invalid email and invalid password", async ({ page }) => {
+  test("Login using invalid email and password", async ({ page }) => {
     const login = new LoginPage(page);
     await login.login(testData.invalidUserPass.email, testData.invalidUserPass.password);
     await login.submit();
@@ -35,9 +35,33 @@ test.describe("Go to Page and Login", () => {
     await login.submit();
   });
 
+  test("Login using empty email and valid password", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(testData.emptyUservalidPass.email, testData.emptyUservalidPass.password);
+    await login.submit();
+  });
+
+  test("Login using empty password and valid email", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(testData.emptyPassvalidUser.email, testData.emptyPassvalidUser.password);
+    await login.submit();
+  });
+
+  test("Login using empty email and invalid password", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(testData.emptyUserinvalidPass.email, testData.emptyUserinvalidPass.password);
+    await login.submit();
+  });
+
+  test("Login using empty password and invalid email", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(testData.emptyPassinvalidUser.email, testData.emptyPassinvalidUser.password);
+    await login.submit();
+  });
+
   test("Login using empty email and empty password", async ({ page }) => {
     const login = new LoginPage(page);
-    await login.login(testData.invalidUser.email, testData.invalidUser.password);
+    await login.login(testData.emptyUserandPass.email, testData.emptyUserandPass.password);
     await login.submit();
   });
 

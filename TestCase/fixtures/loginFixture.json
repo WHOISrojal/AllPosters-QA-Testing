@@ -31,8 +31,17 @@
         "email": "rojal2002@gmail.com",
         "password": ""
     },
+    "emptyUserandPass":{
+        "email": "",
+        "password": ""
+    },
     "search":{
-        "searchTerm": "stranger things"
+        "searchTerm": "stranger things",
+        "randomSearch": "whoamiiamrojal",
+        "emptySearch" : "",
+        "specialcharSearch": ":':%%^&",
+        "longcharSearch": "aidhakhdkahdahdhakdbhcueruyewbzczlhjajkhakjdhauhgdgahasdasdgyhbcvnfgj",
+        "caseinsensitiveSearch": "Harry Potter"
     },
     "contactDetail":{
         "firstName": "Rojal",

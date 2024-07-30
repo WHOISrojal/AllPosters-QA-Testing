@@ -43,6 +43,13 @@ exports.LoginPage = class LoginPage {
     await this.page.waitForLoadState("domcontentloaded");
   }
 
+  async searchfordiffcase(term) {
+    await this.page.waitForTimeout(2000);
+    await this.searchInput.fill(term);
+    await this.searchInput.press('Enter'); 
+    await this.page.waitForLoadState("domcontentloaded");
+  }
+
   async selectPoster() {
     await this.posterImage.waitFor({ state: 'visible', timeout: 20000 });
     await this.posterImage.click();
