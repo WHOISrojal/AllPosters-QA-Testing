@@ -37,10 +37,11 @@
     },
     "search":{
         "searchTerm": "stranger things",
+        "newsearchTerm": "one piece",
         "randomSearch": "whoamiiamrojal",
         "emptySearch" : "",
         "specialcharSearch": ":':%%^&",
-        "longcharSearch": "aidhakhdkahdahdhakdbhcueruyewbzczlhjajkhakjdhauhgdgahasdasdgyhbcvnfgj",
+        "longcharSearch": "aidhakhdkahdahdhakdbhcueruyewbzczlhjajkhakjdhauhadasdhgajgdhasgdjhasgdjhagsjdgasdgsahjgdjhasgdjasgdjagdjasgcuvvhacagdgahasdasdgyhbcvnfgj",
         "caseinsensitiveSearch": "Harry Potter"
     },
     "contactDetail":{

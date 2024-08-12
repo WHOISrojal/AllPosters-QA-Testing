@@ -8,6 +8,7 @@ test.describe("Goto Page and Login", () => {
   test.beforeEach(async ({ page }) => {
     const login = new LoginPage(page);
     await page.goto("https://www.allposters.com/");
+    await expect(page).toHaveTitle(/AllPosters/);
     await login.navigateToLogin();
     await login.login(testData.validUser.email, testData.validUser.password);
     await login.submit();
@@ -96,6 +97,18 @@ test.describe("Goto Page and Login", () => {
 
     await login.selectQuantity(2); // Select quantity 2
 
+    await login.removefn();
+
+    await login.removeConfirmfn();
+
+    await page.goto("https://www.allposters.com");
+
+    await login.search(testData.search.newsearchTerm); 
+
+    await login.newposterSelectfn();
+
+    await login.addCart();
+
     await login.checkoutfn();
 
     await contact.customerFill();
@@ -110,9 +123,4 @@ test.describe("Goto Page and Login", () => {
   });
 
 });
-
-
-
-
-
 

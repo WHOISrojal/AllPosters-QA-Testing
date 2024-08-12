@@ -3,6 +3,7 @@ const testData = require("../fixtures/loginFixture.json");
 import { LoginPage } from "../pageObjects/login.po.js";
 import { ContactPage } from "../pageObjects/contactFill.po.js";
 
+test.describe.configure({ mode:"serial"});
 test.describe.configure({ timeout:60000 });
 test.describe("Go to Page and Login", () => {
   test.beforeEach(async ({ page }) => {
@@ -66,3 +67,4 @@ test.describe("Go to Page and Login", () => {
   });
 
 });
+
