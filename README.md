@@ -1,4 +1,3 @@
-# Testing for the allposters.com website is going on as login, search, addtocart are tested with some invalid login cases, search cases, and logout cases
 # 🧪 Playwright Test Automation – Login Test
 
 This project uses [Playwright](https://playwright.dev/) for end-to-end testing. The focus is on automating the **login functionality**, located under the `TestCaseProject/TestCase/login` directory.
