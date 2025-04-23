@@ -17,6 +17,13 @@ npm install
 npx playwright install
 ```
 
+### 3. Navigate to the test folder, run:
+```
+cd TestCaseProject
+cd TestCase
+cd login
+```
+
 ### 🚀 Running Tests
 🔹 Headless Mode (runs in background)
 This runs the test without opening the browser:
