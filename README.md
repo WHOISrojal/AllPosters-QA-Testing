@@ -12,17 +12,17 @@ Make sure [Node.js](https://nodejs.org/) is installed on your system.
 ```bash
 npm install
 
-2. Install Playwright and required browsers
-bash
-Copy
-Edit
+### 2. Install Playwright and required browsers
+```bash
 npx playwright install
 
-🚀 Running Tests
+### 🚀 Running Tests
 🔹 Headless Mode (runs in background)
 This runs the test without opening the browser:
+```bash
 npx playwright test login.spec.js
 
 🔹 Headed Mode (opens browser window)
 This runs the test with the browser UI visible, great for debugging:
+```bash
 npx playwright test --headed login.spec.js
