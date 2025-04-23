@@ -6,6 +6,12 @@ This project uses [Playwright](https://playwright.dev/) for end-to-end testing. 
 
 Make sure [Node.js](https://nodejs.org/) is installed on your system.
 
+### 📥 Clone the Repository
+First, clone this project to your local machine using Git:
+```
+git clone https://github.com/yourusername/your-repo-name.git
+```
+
 ### 1. Install project dependencies
 ```
 npm install
