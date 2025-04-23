@@ -3,7 +3,7 @@ const testData = require("../fixtures/loginFixture.json");
 import { LoginPage } from "../pageObjects/login.po.js";
 import { ContactPage } from "../pageObjects/contactFill.po.js";
 
-test.describe.configure({ timeout:60000 });
+test.describe.configure({ timeout:60000});
 test.describe("Goto Page and Login", () => {
   test.beforeEach(async ({ page }) => {
     const login = new LoginPage(page);
@@ -84,7 +84,7 @@ test.describe("Goto Page and Login", () => {
     await login.logoutfn();
   });
 
-  test.only("Login, search, select, addCart, checkout, customerfill, payment", async ({ page }) => {
+  test.only("Login, search, select, addCart, viewCart checkout, customerfill, payment", async ({ page }) => {
     const login = new LoginPage(page);
     const contact = new ContactPage(page);
 
@@ -94,8 +94,10 @@ test.describe("Goto Page and Login", () => {
     // await expect(page.locator('text=Poster Details')).toBeVisible(); 
 
     await login.addCart();
+    
+    await login.viewCart();
 
-    await login.selectQuantity(2); // Select quantity 2
+    // await login.selectQuantity(2); // Select quantity 2
 
     await login.removefn();
 
@@ -108,6 +110,8 @@ test.describe("Goto Page and Login", () => {
     await login.newposterSelectfn();
 
     await login.addCart();
+
+    await login.viewCart2();
 
     await login.checkoutfn();
 
