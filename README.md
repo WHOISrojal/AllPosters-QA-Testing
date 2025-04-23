@@ -8,17 +8,24 @@ This project uses [Playwright](https://playwright.dev/) for end-to-end testing. 
 Make sure [Node.js](https://nodejs.org/) is installed on your system.
 
 ### 1. Install project dependencies
+```
 npm install
+```
 
 ### 2. Install Playwright and required browsers
-
+```
 npx playwright install
+```
 
 ### 🚀 Running Tests
 🔹 Headless Mode (runs in background)
 This runs the test without opening the browser:
+```
 npx playwright test login.spec.js
+```
 
 🔹 Headed Mode (opens browser window)
 This runs the test with the browser UI visible, great for debugging:
+```
 npx playwright test --headed login.spec.js
+```
